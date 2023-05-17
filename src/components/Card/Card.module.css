@@ -59,6 +59,12 @@
   background-color: #EBD8FF;
   color: #373737;
   margin: 26px 92px 36px 92px;
+  font-size: 18px;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
 }
 
 .logo {
