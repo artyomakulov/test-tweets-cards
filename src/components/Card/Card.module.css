@@ -24,7 +24,7 @@
   border-radius: 50%;
   object-fit: cover;
   border: 8px solid #EBD8FF;
-  background-color: #471CA9;
+  background: linear-gradient(114.99deg, #471CA9 -0.99%, #5736A3 54.28%, #4B2A99 78.99%);
   border-radius: 50%;
   position: relative; 
   z-index: 2; 
@@ -60,11 +60,10 @@
   background-color: #EBD8FF;
   color: #373737;
   margin: 26px 92px 36px 92px;
-  font-size: 18px;
   font-family: 'Montserrat';
   font-weight: 600;
   font-size: 18px;
-  line-height: 22px;
+  border: none;
   text-transform: uppercase;
 }
 
