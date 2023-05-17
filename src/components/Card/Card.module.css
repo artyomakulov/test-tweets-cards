@@ -1,0 +1,61 @@
+ul,
+li,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+
+.profile {
+  width: 380px;
+  height: 460px;
+  border-radius: 5px;
+  margin: auto auto;
+  text-align: center;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #471CA9;
+  padding: 40px;
+}
+
+.description p {
+  margin-top: 20px;
+}
+
+
+.tweets,
+.followers {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    
+    color: #EBD8FF;
+}
+
+.avatar {
+  display: block;
+  width: 120px;
+  height: auto;
+  border-radius: 50%;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* button.following {
+    background-color: #ccc;
+  } */
