@@ -5,18 +5,25 @@ import css from './CardList.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LoadMoreButton from '../LoadMoreButton/LoadMoreButton';
 
-
 const CardList = () => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [moreUsers, setMoreUsers] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
-  
+
     getUsers(page, 3)
       .then(res => {
-        setUsers(prevUsers => [...prevUsers, ...res.data]);
+        const newData = res.data;
+
+        if (newData.length === 0) {
+          setMoreUsers(false);
+        } else {
+          setUsers(prevUsers => [...prevUsers, ...newData]);
+        }
+
         setIsLoading(false);
       })
       .catch(error => {
@@ -40,7 +47,9 @@ const CardList = () => {
           ))}
         </ul>
       </div>
-      <LoadMoreButton onClick={handleLoadMoreClick} isLoading={isLoading} />
+      {moreUsers && (
+        <LoadMoreButton onClick={handleLoadMoreClick} isLoading={isLoading} />
+      )}
     </>
   );
 };
