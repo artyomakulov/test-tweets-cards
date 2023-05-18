@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-homework-template/static/css/main.260d1911.css",
-    "main.js": "/react-homework-template/static/js/main.2bf23e43.js",
-    "static/media/picture.svg": "/react-homework-template/static/media/picture.23dcbc3cc8ccc9682f24b4acffb5efb2.svg",
-    "static/media/Vector.svg": "/react-homework-template/static/media/Vector.e917114d7945c04c85a8946a331d28b6.svg",
-    "index.html": "/react-homework-template/index.html",
-    "main.260d1911.css.map": "/react-homework-template/static/css/main.260d1911.css.map",
-    "main.2bf23e43.js.map": "/react-homework-template/static/js/main.2bf23e43.js.map"
+    "main.css": "/test-twitter-cards/static/css/main.b339c649.css",
+    "main.js": "/test-twitter-cards/static/js/main.c6e236ca.js",
+    "static/media/picture.svg": "/test-twitter-cards/static/media/picture.23dcbc3cc8ccc9682f24b4acffb5efb2.svg",
+    "static/media/Vector.svg": "/test-twitter-cards/static/media/Vector.a1416a7f2f216318012dfc96a2de7f92.svg",
+    "index.html": "/test-twitter-cards/index.html",
+    "main.b339c649.css.map": "/test-twitter-cards/static/css/main.b339c649.css.map",
+    "main.c6e236ca.js.map": "/test-twitter-cards/static/js/main.c6e236ca.js.map"
   },
   "entrypoints": [
-    "static/css/main.260d1911.css",
-    "static/js/main.2bf23e43.js"
+    "static/css/main.b339c649.css",
+    "static/js/main.c6e236ca.js"
   ]
 }
