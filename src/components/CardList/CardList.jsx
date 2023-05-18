@@ -3,7 +3,7 @@ import Card from 'components/Card/Card';
 import { getUsers } from '../../services/api';
 import css from './CardList.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import LoadMoreButton from '../Button/Button';
+import LoadMoreButton from '../LoadMoreButton/LoadMoreButton';
 
 
 const CardList = () => {

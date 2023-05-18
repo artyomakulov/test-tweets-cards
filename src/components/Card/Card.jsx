@@ -4,34 +4,41 @@ import css from './Card.module.css';
 import LogoGOIT from '../../img/Vector.svg';
 
 const Card = ({ user }) => {
-  const [isFollowed, setIsFollowed] = useState(() => {
-    const savedFollowedStatus = localStorage.getItem(`card_${user.id}_isFollowed`);
-    return savedFollowedStatus !== null ? JSON.parse(savedFollowedStatus) : false;
+  const [isFollow, setIsFollow] = useState(() => {
+    const savedFollowStatus = localStorage.getItem(`card_${user.id}_isFollow`);
+    return savedFollowStatus !== null ? JSON.parse(savedFollowStatus) : false;
   });
-  
-  const [followersCount, setFollowersCount] = useState(() => {
-    const savedFollowersCount = localStorage.getItem(`card_${user.id}_followersCount`);
-    return savedFollowersCount !== null ? JSON.parse(savedFollowersCount) : user.followers;
+
+  const [followersNumber, setFollowersNumber] = useState(() => {
+    const savedFollowersNumber = localStorage.getItem(
+      `card_${user.id}_followersNumber`
+    );
+    return savedFollowersNumber !== null
+      ? JSON.parse(savedFollowersNumber)
+      : user.followers;
   });
 
   useEffect(() => {
-    localStorage.setItem(`card_${user.id}_isFollowed`, JSON.stringify(isFollowed));
-  }, [user.id, isFollowed]);
+    localStorage.setItem(`card_${user.id}_isFollow`, JSON.stringify(isFollow));
+  }, [user.id, isFollow]);
 
   useEffect(() => {
-    localStorage.setItem(`card_${user.id}_followersCount`, JSON.stringify(followersCount));
-  }, [user.id, followersCount]);
+    localStorage.setItem(
+      `card_${user.id}_followersNumber`,
+      JSON.stringify(followersNumber)
+    );
+  }, [user.id, followersNumber]);
 
   const handleFollowClick = () => {
-    if (isFollowed) {
-      setFollowersCount(prevCount => prevCount - 1);
+    if (isFollow) {
+      setFollowersNumber(prevCount => prevCount - 1);
     } else {
-      setFollowersCount(prevCount => prevCount + 1);
+      setFollowersNumber(prevCount => prevCount + 1);
     }
-    setIsFollowed(prevState => !prevState);
+    setIsFollow(prevState => !prevState);
   };
 
-  const followersFormated = followersCount.toLocaleString('en-US');
+  const followersFormated = followersNumber.toLocaleString('en-US');
 
   return (
     <div className={css.card}>
@@ -51,8 +58,13 @@ const Card = ({ user }) => {
         <div className={css.info}>
           <p className={css.statsT}>{user.tweets} tweets</p>
           <p className={css.statsF}>{followersFormated} followers</p>
-          <button className={isFollowed ? `${css.button} ${css.buttonActive}` : css.button} onClick={handleFollowClick}>
-            {isFollowed ? 'Following' : 'Follow'}
+          <button
+            className={
+              isFollow ? `${css.button} ${css.buttonActive}` : css.button
+            }
+            onClick={handleFollowClick}
+          >
+            {isFollow ? 'Following' : 'Follow'}
           </button>
         </div>
       </div>
