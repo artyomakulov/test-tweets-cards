@@ -1,13 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import backGroundImg from '../../img/picture.svg';
 import css from './Card.module.css';
 import LogoGOIT from '../../img/Vector.svg';
 
 const Card = ({ user }) => {
-  const [isFollowed, setIsFollowed] = useState(false);
-  const [followersCount, setFollowersCount] = useState(user.followers);
+  const [isFollowed, setIsFollowed] = useState(() => {
+    const savedFollowedStatus = localStorage.getItem(`card_${user.id}_isFollowed`);
+    return savedFollowedStatus !== null ? JSON.parse(savedFollowedStatus) : false;
+  });
+  
+  const [followersCount, setFollowersCount] = useState(() => {
+    const savedFollowersCount = localStorage.getItem(`card_${user.id}_followersCount`);
+    return savedFollowersCount !== null ? JSON.parse(savedFollowersCount) : user.followers;
+  });
 
-  const handleFollow = () => {
+  useEffect(() => {
+    localStorage.setItem(`card_${user.id}_isFollowed`, JSON.stringify(isFollowed));
+  }, [user.id, isFollowed]);
+
+  useEffect(() => {
+    localStorage.setItem(`card_${user.id}_followersCount`, JSON.stringify(followersCount));
+  }, [user.id, followersCount]);
+
+  const handleFollowClick = () => {
     if (isFollowed) {
       setFollowersCount(prevCount => prevCount - 1);
     } else {
@@ -16,7 +31,7 @@ const Card = ({ user }) => {
     setIsFollowed(prevState => !prevState);
   };
 
-  const formattedFollowers = followersCount.toLocaleString('en-US'); 
+  const followersFormated = followersCount.toLocaleString('en-US');
 
   return (
     <div className={css.card}>
@@ -35,8 +50,8 @@ const Card = ({ user }) => {
         </div>
         <div className={css.info}>
           <p className={css.statsT}>{user.tweets} tweets</p>
-          <p className={css.statsF}>{formattedFollowers} followers</p>
-          <button className={isFollowed ? `${css.button} ${css.buttonFollowed}` : css.button} onClick={handleFollow}>
+          <p className={css.statsF}>{followersFormated} followers</p>
+          <button className={isFollowed ? `${css.button} ${css.buttonActive}` : css.button} onClick={handleFollowClick}>
             {isFollowed ? 'Following' : 'Follow'}
           </button>
         </div>
