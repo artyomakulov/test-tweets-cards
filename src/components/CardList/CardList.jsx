@@ -12,7 +12,7 @@ const CardList = () => {
   useEffect(() => {
     axios
       .get(
-        `https://6464aa05043c103502bf6426.mockapi.io/users?completed=false&page=${page}&limit=6`
+        `https://6464aa05043c103502bf6426.mockapi.io/users?completed=false&page=${page}&limit=3`
       )
       .then(res => {
         setUsers(prevUsers => [...prevUsers, ...res.data]);
