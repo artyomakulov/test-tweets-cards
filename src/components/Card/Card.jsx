@@ -16,7 +16,7 @@ const Card = ({ user }) => {
       <div>
         <div>
           <div>
-            <img alt="avatar" className={css.avatar} src={user.avatar} />
+            <img alt={user.user} className={css.avatar} src={user.avatar} />
           </div>
         </div>
         <div className={css.info}>
