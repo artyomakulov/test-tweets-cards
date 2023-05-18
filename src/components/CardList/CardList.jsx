@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Card from 'components/Card/Card';
-import axios from 'axios';
+import { getUsers } from '../../services/api';
 import css from './CardList.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LoadMoreButton from '../Button/Button';
+
 
 const CardList = () => {
   const [users, setUsers] = useState([]);
@@ -12,11 +13,8 @@ const CardList = () => {
 
   useEffect(() => {
     setIsLoading(true);
-
-    axios
-      .get(
-        `https://6464aa05043c103502bf6426.mockapi.io/users?completed=false&page=${page}&limit=3`
-      )
+  
+    getUsers(page, 3)
       .then(res => {
         setUsers(prevUsers => [...prevUsers, ...res.data]);
         setIsLoading(false);
@@ -33,7 +31,7 @@ const CardList = () => {
 
   return (
     <>
-      <div>
+      <div className={css.container}>
         <ul className={css.grid}>
           {users.map(user => (
             <li key={user.id}>
