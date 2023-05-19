@@ -4,6 +4,7 @@ import { getUsers } from '../../services/api';
 import css from './CardList.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LoadMoreButton from '../LoadMoreButton/LoadMoreButton';
+import { Link } from 'react-router-dom';
 
 const CardList = () => {
   const [users, setUsers] = useState([]);
@@ -50,6 +51,13 @@ const CardList = () => {
       {moreUsers && (
         <LoadMoreButton onClick={handleLoadMoreClick} isLoading={isLoading} />
       )}
+      <div className={css.backButtonContainer}>
+        <button type="button" class="btn btn-warning">
+          <Link to="/" className={css.backButton}>
+            Back to Homepage
+          </Link>
+        </button>
+      </div>
     </>
   );
 };

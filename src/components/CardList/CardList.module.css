@@ -11,3 +11,16 @@
     margin-top: 32px;
     margin-right: 32px;
 }
+
+.backButton {
+    text-decoration: none;
+    color:black;
+
+}
+
+.backButtonContainer{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
