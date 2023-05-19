@@ -18,13 +18,13 @@ export default function Home() {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>
-        Hello, this is my homepage.
+        Hello, this is my homepage
         <span role="img" aria-label="Greeting icon">
           💁‍♀️
         </span>
       </h1>
       <p>
-        If you want to check my tweets from test work, press there
+        If you want to check my tweets from test work, press
         <Link to="/tweets" style={{ textDecoration: 'none' }}>
           {' '}
           Tweets
